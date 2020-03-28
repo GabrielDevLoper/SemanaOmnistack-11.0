@@ -3,6 +3,8 @@ const routes = require('./routes');
 const morgan = require('morgan');
 const cors = require('cors');
 
+const { errors } = require('celebrate');
+
 const app = express();
 
 /**Métodos HTTP 
@@ -37,6 +39,7 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan());
 app.use(routes);
+app.use(errors());
 
 
 app.listen(process.env.PORT || 3333);
